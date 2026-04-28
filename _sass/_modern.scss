@@ -592,6 +592,13 @@ tr:hover td {
   text-transform: uppercase;
 }
 
+.sidebar-stats__row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
 .sidebar-stats__badge {
   display: inline-block;
   max-width: 100%;
