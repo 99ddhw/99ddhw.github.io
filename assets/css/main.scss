@@ -8,10 +8,10 @@ search: false
 @import "fonts";
 @import "tokens";
 
-/* Right sidebar (TOC) — 기본 대비 약 20% 축소 */
-$right-sidebar-width-narrow: 162px;
-$right-sidebar-width:        243px;
-$right-sidebar-width-wide:   324px;
+/* Right sidebar (TOC) — 기본 대비 약 27% 축소 */
+$right-sidebar-width-narrow: 146px;
+$right-sidebar-width:        219px;
+$right-sidebar-width-wide:   292px;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'air' }}";
 @import "minimal-mistakes";

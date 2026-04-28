@@ -441,12 +441,12 @@ h1 code, h2 code, h3 code, h4 code {
   border-radius: 6px;
 }
 
-pre,
-.highlight,
+/* Outer styled wrapper: only ONE box per code block */
 div.highlighter-rouge,
-figure.highlight {
-  background: var(--code-bg) !important;
-  color: var(--code-text) !important;
+figure.highlight,
+pre:not(.highlighter-rouge pre):not(figure.highlight pre):not(.highlight pre) {
+  background: var(--code-bg);
+  color: var(--code-text);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1rem 1.25rem;
@@ -457,11 +457,19 @@ figure.highlight {
   position: relative;
 }
 
+/* Reset nested elements so they don't stack box styling */
+.highlighter-rouge .highlight,
+.highlighter-rouge pre,
+.highlighter-rouge code,
+figure.highlight pre,
+figure.highlight code,
 pre code,
 .highlight code {
-  background: transparent !important;
-  color: inherit !important;
+  background: transparent;
+  color: inherit;
+  border: 0;
   padding: 0;
+  margin: 0;
 }
 
 .code-copy-btn {
@@ -695,8 +703,6 @@ tr:hover td {
   .archive__item-title { font-size: 1.1rem; }
 
   /* Code blocks — less side padding to maximize content width */
-  pre,
-  .highlight,
   div.highlighter-rouge,
   figure.highlight {
     padding: 0.85rem 0.95rem;
@@ -740,8 +746,6 @@ tr:hover td {
 
   .archive__item-title { font-size: 1rem; }
 
-  pre,
-  .highlight,
   div.highlighter-rouge,
   figure.highlight {
     font-size: 0.82rem;
