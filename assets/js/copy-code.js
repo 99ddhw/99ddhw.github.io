@@ -47,13 +47,19 @@
     });
   }
 
+  function mount(el) {
+    if (getComputedStyle(el).position === 'static') {
+      el.style.position = 'relative';
+    }
+    attach(el);
+  }
+
   function init() {
-    var blocks = document.querySelectorAll('div.highlighter-rouge, figure.highlight, .highlight');
-    blocks.forEach(function (el) {
-      if (getComputedStyle(el).position === 'static') {
-        el.style.position = 'relative';
-      }
-      attach(el);
+    document.querySelectorAll('div.highlighter-rouge, figure.highlight').forEach(mount);
+
+    document.querySelectorAll('div.highlight').forEach(function (el) {
+      if (el.closest('.highlighter-rouge, figure.highlight')) return;
+      mount(el);
     });
   }
 
