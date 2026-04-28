@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Tokyo Night syntax theme — Rouge token override
+   palette: https://github.com/folke/tokyonight.nvim
+   ========================================================================== */
+
+$tn-bg:      #1a1b26;
+$tn-fg:      #c0caf5;
+$tn-comment: #565f89;
+$tn-purple:  #bb9af7;
+$tn-blue:    #7aa2f7;
+$tn-cyan:    #2ac3de;
+$tn-teal:    #b4f9f8;
+$tn-green:   #9ece6a;
+$tn-orange:  #ff9e64;
+$tn-yellow:  #e0af68;
+$tn-red:     #f7768e;
+$tn-aqua:    #89ddff;
+
+.highlight,
+.highlighter-rouge .highlight,
+figure.highlight {
+  background: $tn-bg;
+  color: $tn-fg;
+
+  /* Comments */
+  .c, .ch, .cd, .cm, .cpf, .c1, .cs   { color: $tn-comment; font-style: italic; }
+  .cp                                  { color: $tn-orange; }
+
+  /* Errors / generic */
+  .err                                 { color: $tn-red; background-color: transparent; }
+  .gd                                  { color: $tn-red; }
+  .ge                                  { font-style: italic; }
+  .gi                                  { color: $tn-green; }
+  .gh, .gu                             { color: $tn-blue; font-weight: 700; }
+  .gp                                  { color: $tn-comment; }
+  .gs                                  { font-weight: 700; }
+
+  /* Keywords */
+  .k, .kd, .kn, .kp, .kr, .kv          { color: $tn-purple; }
+  .kc                                  { color: $tn-orange; }
+  .kt                                  { color: $tn-cyan; }
+
+  /* Numbers */
+  .m, .mb, .mf, .mh, .mi, .il, .mo, .mx { color: $tn-orange; }
+
+  /* Names / identifiers */
+  .n, .nl, .nn, .nv, .vc, .vg, .vi, .vm,
+  .py, .nc, .w                         { color: $tn-fg; }
+  .na                                  { color: $tn-yellow; }
+  .nb, .bp                             { color: $tn-cyan; }
+  .no                                  { color: $tn-orange; }
+  .nd, .nx                             { color: $tn-blue; }
+  .ne                                  { color: $tn-red; }
+  .nf, .fm                             { color: $tn-blue; }
+  .ni                                  { color: $tn-orange; }
+  .nt                                  { color: $tn-red; }
+
+  /* Operators / punctuation */
+  .o                                   { color: $tn-aqua; }
+  .ow                                  { color: $tn-purple; }
+  .p, .pi                              { color: $tn-fg; }
+
+  /* Strings */
+  .s, .sa, .sb, .sc, .dl, .sd,
+  .s2, .se, .sh, .si, .sx, .s1, .ss    { color: $tn-green; }
+  .sr                                  { color: $tn-teal; }
+
+  /* Line numbers (rouge gutter) */
+  .lineno, .gl                         { color: $tn-comment; user-select: none; }
+}
