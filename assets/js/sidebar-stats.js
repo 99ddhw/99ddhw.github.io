@@ -32,8 +32,8 @@
 
   var row = document.createElement('div');
   row.className = 'sidebar-stats__row';
-  row.appendChild(makeBadge(todayId, '오늘'));
-  row.appendChild(makeBadge(totalId, '누적'));
+  row.appendChild(makeBadge(todayId, 'today'));
+  row.appendChild(makeBadge(totalId, 'visitors'));
 
   var wrap = document.createElement('div');
   wrap.className = 'sidebar-stats';

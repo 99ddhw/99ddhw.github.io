@@ -20,7 +20,12 @@ body {
   transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
 }
 
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .page__title,
 .archive__item-title {
   color: var(--text);
@@ -29,7 +34,14 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.3;
 }
 
-p, li {
+[data-theme="dark"] .page__title,
+[data-theme="dark"] .archive__item-title,
+[data-theme="dark"] .archive__item-title a {
+  color: #f8fafc;
+}
+
+p,
+li {
   color: var(--text);
 }
 
@@ -76,6 +88,11 @@ a {
     letter-spacing: -0.02em;
   }
 
+  .site-subtitle {
+    font-size: 1em;
+    font-weight: 500;
+  }
+
   .visible-links a:before {
     background: var(--accent);
     height: 2px;
@@ -110,13 +127,23 @@ a {
     transform: scale(0.96);
   }
 
-  .theme-toggle__sun { display: none; }
-  .theme-toggle__moon { display: inline-block; }
+  .theme-toggle__sun {
+    display: none;
+  }
+
+  .theme-toggle__moon {
+    display: inline-block;
+  }
 }
 
 [data-theme="dark"] .theme-toggle {
-  .theme-toggle__sun { display: inline-block; }
-  .theme-toggle__moon { display: none; }
+  .theme-toggle__sun {
+    display: inline-block;
+  }
+
+  .theme-toggle__moon {
+    display: none;
+  }
 }
 
 /* Page wrapper ------------------------------------------------------------- */
@@ -133,7 +160,8 @@ a {
 .page__content {
   max-width: 72ch;
 
-  p, li {
+  p,
+  li {
     color: var(--text);
   }
 }
@@ -141,6 +169,7 @@ a {
 /* 404 page ----------------------------------------------------------------- */
 
 .page-404 {
+
   .page__title,
   .page__meta {
     display: none;
@@ -189,6 +218,11 @@ a {
 
 /* Hero (home page) --------------------------------------------------------- */
 
+/* 홈에는 hero가 타이틀 역할을 하므로 기본 page__title 숨김 */
+body.home-with-hero .page__title {
+  display: none;
+}
+
 .hero {
   position: relative;
   margin: 0 0 3rem;
@@ -222,7 +256,7 @@ a {
 
 .hero__title {
   margin: 0 0 1rem;
-  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-size: clamp(1.35rem, 2.8vw, 2rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -372,13 +406,6 @@ a.page__taxonomy-item {
   background: transparent;
 }
 
-/* 사이드바(좌·우) 공통 폰트 사이즈 축소 */
-.sidebar,
-.sidebar__right,
-.toc__menu a {
-  font-size: 0.7rem;
-}
-
 /* MM이 자체 font-size를 명시한 author profile 항목들도 같은 크기로 강제 */
 .sidebar .author__name,
 .sidebar .author__bio,
@@ -414,7 +441,7 @@ a.page__taxonomy-item {
 
 .toc__menu a {
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   border-left: 2px solid transparent;
   padding-left: 1rem;
   transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease),
@@ -453,7 +480,10 @@ code {
 
 p code,
 li code,
-h1 code, h2 code, h3 code, h4 code {
+h1 code,
+h2 code,
+h3 code,
+h4 code {
   background: var(--inline-code-bg);
   color: var(--inline-code-text);
   padding: 0.1em 0.4em;
@@ -661,7 +691,9 @@ tr:hover td {
 .page__footer a {
   color: var(--text-muted);
 
-  &:hover { color: var(--accent); }
+  &:hover {
+    color: var(--accent);
+  }
 }
 
 /* Search ------------------------------------------------------------------- */
@@ -704,13 +736,16 @@ tr:hover td {
   a {
     color: var(--text-muted);
 
-    &:hover { color: var(--accent); }
+    &:hover {
+      color: var(--accent);
+    }
   }
 }
 
 /* Mobile responsive -------------------------------------------------------- */
 
 @media (max-width: 64em) {
+
   /* TOC right sidebar collapses below content on small screens */
   .sidebar__right {
     padding-left: 0;
@@ -738,10 +773,18 @@ tr:hover td {
     border-radius: var(--radius);
   }
 
-  .hero__title { font-size: clamp(2rem, 8vw, 2.6rem); }
-  .hero__lead  { font-size: 0.98rem; }
+  .hero__title {
+    font-size: clamp(2rem, 8vw, 2.6rem);
+  }
 
-  .hero__actions { width: 100%; }
+  .hero__lead {
+    font-size: 0.98rem;
+  }
+
+  .hero__actions {
+    width: 100%;
+  }
+
   .hero__btn {
     flex: 1 1 auto;
     justify-content: center;
@@ -752,7 +795,9 @@ tr:hover td {
     padding: 1rem 1.1rem;
   }
 
-  .archive__item-title { font-size: 1.1rem; }
+  .archive__item-title {
+    font-size: 1.1rem;
+  }
 
   /* Code blocks — less side padding to maximize content width */
   div.highlighter-rouge,
@@ -793,10 +838,17 @@ tr:hover td {
     padding: 1.75rem 0.85rem 1.75rem;
   }
 
-  .hero__eyebrow { font-size: 0.8rem; }
-  .hero__lead    { font-size: 0.95rem; }
+  .hero__eyebrow {
+    font-size: 0.8rem;
+  }
 
-  .archive__item-title { font-size: 1rem; }
+  .hero__lead {
+    font-size: 0.95rem;
+  }
+
+  .archive__item-title {
+    font-size: 1rem;
+  }
 
   div.highlighter-rouge,
   figure.highlight {
