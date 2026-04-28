@@ -12,6 +12,9 @@ baseurl: ""
 repository: "99ddhw/99ddhw.github.io"
 words_per_minute: 250
 timezone: Asia/Seoul
+og_image: /assets/images/og-default.png
+twitter:
+  card: summary_large_image
 
 search: true
 search_full_content: true
