@@ -192,7 +192,7 @@ a {
 .hero {
   position: relative;
   margin: 0 0 3rem;
-  padding: 4rem 2rem 3.5rem;
+  padding: 3.2rem 2rem 2.8rem;
   background:
     radial-gradient(1200px 360px at 80% -40%, var(--accent-soft), transparent 60%),
     radial-gradient(900px 320px at -10% 110%, var(--accent-soft), transparent 60%),
@@ -222,7 +222,7 @@ a {
 
 .hero__title {
   margin: 0 0 1rem;
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -370,6 +370,13 @@ a.page__taxonomy-item {
 .sidebar,
 .toc {
   background: transparent;
+}
+
+/* 사이드바(좌·우) 공통 폰트 사이즈 축소 */
+.sidebar,
+.sidebar__right,
+.toc__menu a {
+  font-size: 0.7rem;
 }
 
 /* 본문과 우측 TOC 사이 여백 */
