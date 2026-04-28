@@ -1,0 +1,126 @@
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+minimal_mistakes_skin: "air"
+
+locale: "ko-KR"
+title: "ddhw.dev"
+title_separator: "·"
+subtitle: "개발 기록"
+name: "ddhw"
+description: "개발 기술 블로그 — 학습한 것, 만든 것, 풀어낸 문제들"
+url: "https://99ddhw.github.io"
+baseurl: ""
+repository: "99ddhw/99ddhw.github.io"
+words_per_minute: 250
+timezone: Asia/Seoul
+
+search: true
+search_full_content: true
+search_provider: lunr
+lunr:
+  search_within_pages: true
+
+logo: # /assets/images/logo.png
+masthead_title: " "
+breadcrumbs: true
+
+comments:
+  provider: "giscus"
+  giscus:
+    repo_id: "" # giscus.app 에서 발급
+    category_name: "Comments"
+    category_id: ""
+    discussion_term: "pathname"
+    reactions_enabled: "1"
+    theme: "preferred_color_scheme"
+    strict: "0"
+    input_position: "top"
+    emit_metadata: "0"
+    lang: "ko"
+
+atom_feed:
+  hide: false
+
+author:
+  name: "ddhw"
+  avatar: # /assets/images/bio-photo.jpg
+  bio: "꾸준히 기록하는 개발자."
+  location: "Seoul, KR"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/99ddhw"
+
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/99ddhw"
+    - label: "RSS"
+      icon: "fas fa-fw fa-rss-square"
+      url: "/feed.xml"
+
+include:
+  - _pages
+
+exclude:
+  - "*.gemspec"
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - docker-compose.yml
+  - Dockerfile
+  - .dockerignore
+  - .github
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-seo-tag
+
+paginate: 10
+paginate_path: /page:num/
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+      toc: true
+      toc_sticky: true
+      show_date: true
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+compress_html:
+  clippings: all
+  ignore:
+    envs: development

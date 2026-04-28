@@ -1,0 +1,17 @@
+---
+# Front matter (필수) — Jekyll이 SCSS로 처리하도록 합니다
+search: false
+---
+
+@charset "utf-8";
+
+@import "tokens";
+
+/* Right sidebar (TOC) — 기본 대비 약 20% 축소 */
+$right-sidebar-width-narrow: 162px;
+$right-sidebar-width:        243px;
+$right-sidebar-width-wide:   324px;
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'air' }}";
+@import "minimal-mistakes";
+@import "modern";
