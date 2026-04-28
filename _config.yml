@@ -79,6 +79,7 @@ exclude:
   - vendor
   - README.md
   - POSTING.md
+  - CLAUDE.md
   - docker-compose.yml
   - Dockerfile
   - .dockerignore
