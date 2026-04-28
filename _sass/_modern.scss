@@ -602,8 +602,9 @@ tr:hover td {
 .sidebar-stats__badge {
   display: inline-block;
   max-width: 100%;
-  height: auto;
-  border-radius: 4px;
+  height: 16px;
+  width: auto;
+  border-radius: 3px;
 }
 
 /* Pagination & buttons ----------------------------------------------------- */
