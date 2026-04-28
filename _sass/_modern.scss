@@ -379,9 +379,21 @@ a.page__taxonomy-item {
   font-size: 0.7rem;
 }
 
+/* MM이 자체 font-size를 명시한 author profile 항목들도 같은 크기로 강제 */
+.sidebar .author__name,
+.sidebar .author__bio,
+.sidebar .author__urls,
+.sidebar .author__urls li,
+.sidebar .author__urls a,
+.sidebar h3,
+.sidebar h4,
+.sidebar p {
+  font-size: 0.7rem;
+}
+
 /* 본문과 우측 TOC 사이 여백 */
 .sidebar__right {
-  padding-left: 1.5em;
+  padding-left: 1.65em;
 }
 
 .toc {
