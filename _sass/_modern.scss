@@ -647,3 +647,103 @@ tr:hover td {
     &:hover { color: var(--accent); }
   }
 }
+
+/* Mobile responsive -------------------------------------------------------- */
+
+@media (max-width: 64em) {
+  /* TOC right sidebar collapses below content on small screens */
+  .sidebar__right {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 48em) {
+  body {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* Restore symmetric horizontal padding on phones */
+  #main {
+    padding: 1.75rem 1rem 3rem;
+  }
+
+  .page__content {
+    max-width: 100%;
+  }
+
+  /* Hero — already shrunk via earlier rule, tighten further on phones */
+  .hero {
+    padding: 2.25rem 1rem 2rem;
+    border-radius: var(--radius);
+  }
+
+  .hero__title { font-size: clamp(2rem, 8vw, 2.6rem); }
+  .hero__lead  { font-size: 0.98rem; }
+
+  .hero__actions { width: 100%; }
+  .hero__btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  /* Cards — tighter spacing */
+  .archive__item {
+    padding: 1rem 1.1rem;
+  }
+
+  .archive__item-title { font-size: 1.1rem; }
+
+  /* Code blocks — less side padding to maximize content width */
+  pre,
+  .highlight,
+  div.highlighter-rouge,
+  figure.highlight {
+    padding: 0.85rem 0.95rem;
+    font-size: 0.85rem;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Tables — horizontal scroll instead of clipping */
+  .page__content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Theme toggle — slightly larger touch target */
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    margin-left: 0.25rem;
+  }
+
+  /* Masthead nav padding tighten */
+  .masthead__inner-wrap {
+    padding: 0.6rem 1rem;
+  }
+
+  /* 404 page padding reduce */
+  .page-404__inner {
+    padding: 2.5rem 1rem;
+  }
+}
+
+@media (max-width: 30em) {
+  .hero {
+    padding: 1.75rem 0.85rem 1.75rem;
+  }
+
+  .hero__eyebrow { font-size: 0.8rem; }
+  .hero__lead    { font-size: 0.95rem; }
+
+  .archive__item-title { font-size: 1rem; }
+
+  pre,
+  .highlight,
+  div.highlighter-rouge,
+  figure.highlight {
+    font-size: 0.82rem;
+  }
+}

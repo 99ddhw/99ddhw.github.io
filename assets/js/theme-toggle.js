@@ -37,9 +37,11 @@
     btn.title = '테마 전환';
     btn.addEventListener('click', toggle);
 
-    var nav = document.querySelector('.greedy-nav .visible-links');
+    var nav = document.querySelector('.masthead .greedy-nav');
     if (nav) {
-      nav.appendChild(btn);
+      var searchToggle = nav.querySelector('.search__toggle');
+      if (searchToggle) nav.insertBefore(btn, searchToggle);
+      else nav.appendChild(btn);
       paintIcon();
       return;
     }
