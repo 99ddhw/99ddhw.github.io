@@ -406,6 +406,11 @@ a.page__taxonomy-item {
   background: transparent;
 }
 
+/* MM이 .sidebar img를 100%로 강제하는 규칙 무효화 */
+.sidebar img {
+  width: auto;
+}
+
 /* MM이 자체 font-size를 명시한 author profile 항목들도 같은 크기로 강제 */
 .sidebar .author__name,
 .sidebar .author__bio,

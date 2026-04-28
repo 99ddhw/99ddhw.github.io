@@ -4,12 +4,13 @@
   var sidebar = document.querySelector('.sidebar.sticky');
   if (!sidebar) return;
 
-  var SITE_ID = '99ddhw.github.io';
+  // Fresh namespace — change suffix to reset counters again in the future
+  var BASE = 'ddhw-blog-v2';
   var ENDPOINT = 'https://visitor-badge.laobi.icu/badge';
 
   var today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD (UTC)
-  var todayId = SITE_ID + '.day.' + today;
-  var totalId = SITE_ID;
+  var todayId = BASE + '.day.' + today;
+  var totalId = BASE + '.total';
 
   function makeBadge(pageId, leftText) {
     var params = new URLSearchParams({
@@ -18,10 +19,13 @@
       left_color: '#111827',
       right_color: '#6366F1'
     });
+    // Cache-bust per page load so both badges always re-fetch and increment.
+    params.append('_', Date.now());
+
     var img = document.createElement('img');
     img.className = 'sidebar-stats__badge';
     img.alt = leftText;
-    img.loading = 'lazy';
+    img.loading = 'eager';
     img.src = ENDPOINT + '?' + params.toString();
     return img;
   }
