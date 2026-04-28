@@ -138,6 +138,55 @@ a {
   }
 }
 
+/* 404 page ----------------------------------------------------------------- */
+
+.page-404 {
+  .page__title,
+  .page__meta {
+    display: none;
+  }
+}
+
+.page-404__inner {
+  text-align: center;
+  padding: 4rem 1rem;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.page-404__code {
+  margin: 0;
+  font-size: clamp(5rem, 14vw, 8rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, var(--accent), var(--text));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.page-404__title {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.page-404__lead {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.page-404__actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
 /* Hero (home page) --------------------------------------------------------- */
 
 .hero {
