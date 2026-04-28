@@ -1,0 +1,16 @@
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__inner">
+    <p class="hero__eyebrow">{{ site.subtitle | default: site.description }}</p>
+    <h1 id="hero-title" class="hero__title">
+      {{ site.title }}
+    </h1>
+    <p class="hero__lead">
+      {%- if site.author.bio -%}{{ site.author.bio }}{%- endif -%}
+    </p>
+    <div class="hero__actions">
+      <a class="hero__btn hero__btn--primary" href="{{ '/posts/' | relative_url }}">최근 글 보기</a>
+      <a class="hero__btn" href="{{ '/about/' | relative_url }}">About</a>
+    </div>
+  </div>
+  <div class="hero__glow" aria-hidden="true"></div>
+</section>

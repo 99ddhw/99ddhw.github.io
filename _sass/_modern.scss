@@ -138,6 +138,118 @@ a {
   }
 }
 
+/* Hero (home page) --------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  margin: 0 0 3rem;
+  padding: 4rem 2rem 3.5rem;
+  background:
+    radial-gradient(1200px 360px at 80% -40%, var(--accent-soft), transparent 60%),
+    radial-gradient(900px 320px at -10% 110%, var(--accent-soft), transparent 60%),
+    var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 56rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero__eyebrow {
+  margin: 0 0 1rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  margin: 0 0 1rem;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.hero__lead {
+  margin: 0 auto 2rem;
+  max-width: 36rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.hero__actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 1.2rem;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+
+  &:hover {
+    transform: translateY(-1px);
+    color: var(--accent);
+    border-color: var(--accent);
+    text-decoration: none;
+  }
+}
+
+.hero__btn--primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border-color: var(--accent);
+
+  &:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: var(--accent-contrast);
+  }
+}
+
+.hero__glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(600px 200px at 50% 0%, var(--accent-soft), transparent 70%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@media (max-width: 48em) {
+  .hero {
+    padding: 2.75rem 1.25rem 2.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
 /* Cards (archive list) ----------------------------------------------------- */
 
 .archive__item {
