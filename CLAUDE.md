@@ -105,22 +105,31 @@ background, for the same reason.
 one with `page_id = ddhw-blog-vN.day.YYYY-MM-DD` (today, key changes
 nightly UTC), one with `page_id = ddhw-blog-vN.total` (cumulative).
 
-The upstream service has no UV mode — every request is +1. So unique-
-visitor semantics are enforced client-side: the badge is fetched only
-on the first visit per day (today) and the first visit ever (total)
-per browser, tracked via `localStorage` keys `<BASE>.uv.day` /
-`<BASE>.uv.total`. The fetch is done with `fetch()` and the resulting
-SVG is cached as a data URL under `<BASE>.uv.day.svg` /
-`<BASE>.uv.total.svg`; subsequent visits render the cached SVG with
-no network call, so they do not increment the counter. A `Date.now()`
-cache-buster is still attached to the one increment fetch so we get
-the freshly-incremented count back. If the upstream blocks CORS on
-`fetch()`, the code falls back to a direct `<img src>` (which displays
-correctly but reverts to per-load counting for that visit).
+The upstream service has no UV mode — every request is +1. The script
+attempts client-side UV semantics by fetching the badge SVG once per
+period (per day for "today", once ever for "total") and caching it as
+a data URL in `localStorage` (`<BASE>.uv.day.svg` / `<BASE>.uv.total.svg`),
+with visit state under `<BASE>.uv.day` / `<BASE>.uv.total`. Repeat
+visits render the cached SVG with no network call.
+
+In practice **`visitor-badge.laobi.icu` does not return CORS headers**,
+so `fetch()` cannot read the response and the UV cache stays empty.
+The render() function detects this on the first fetch failure, stores
+`<BASE>.uv.cors = 'blocked'`, and from the next visit onward switches
+to PV mode: a single `<img src>` per visit, +1 per load. The very
+first CORS-blocked visit shows no badge (the failed fetch already
+incremented the server counter; we deliberately skip a second
+`<img src>` to avoid the historical +2-per-visit bug). Every visit
+after that renders normally.
+
+For real UV the counter service would need to send
+`Access-Control-Allow-Origin` (e.g. switch to goatcounter or
+counter.dev). The UV code path stays in place so a service swap is a
+one-line change.
 
 If counters get polluted or out of sync, bump the `BASE` constant
-(`ddhw-blog-v2` → `v3`) to reset both — and the per-browser UV state —
-under a fresh namespace.
+(`ddhw-blog-v3` → `v4`) to reset both counters and the per-browser UV
+state under a fresh namespace.
 
 The original Hits service (`hits.seeyoufarm.com`) was used initially
 but its DNS no longer resolves; do not put it back.
