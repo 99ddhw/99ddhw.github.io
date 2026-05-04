@@ -105,10 +105,22 @@ background, for the same reason.
 one with `page_id = ddhw-blog-vN.day.YYYY-MM-DD` (today, key changes
 nightly UTC), one with `page_id = ddhw-blog-vN.total` (cumulative).
 
+The upstream service has no UV mode — every request is +1. So unique-
+visitor semantics are enforced client-side: the badge is fetched only
+on the first visit per day (today) and the first visit ever (total)
+per browser, tracked via `localStorage` keys `<BASE>.uv.day` /
+`<BASE>.uv.total`. The fetch is done with `fetch()` and the resulting
+SVG is cached as a data URL under `<BASE>.uv.day.svg` /
+`<BASE>.uv.total.svg`; subsequent visits render the cached SVG with
+no network call, so they do not increment the counter. A `Date.now()`
+cache-buster is still attached to the one increment fetch so we get
+the freshly-incremented count back. If the upstream blocks CORS on
+`fetch()`, the code falls back to a direct `<img src>` (which displays
+correctly but reverts to per-load counting for that visit).
+
 If counters get polluted or out of sync, bump the `BASE` constant
-(`ddhw-blog-v2` → `v3`) to reset both under a fresh namespace.
-A `Date.now()` cache-buster query param is appended so the badges
-always refetch even if a CDN ignores the service's `no-store` header.
+(`ddhw-blog-v2` → `v3`) to reset both — and the per-browser UV state —
+under a fresh namespace.
 
 The original Hits service (`hits.seeyoufarm.com`) was used initially
 but its DNS no longer resolves; do not put it back.
